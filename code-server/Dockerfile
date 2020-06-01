@@ -20,7 +20,8 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # copy and run custom script
 COPY /code-server/custom.sh /
-RUN /custom.sh
+RUN chmod +x /custom.sh \
+	/custom.sh
 
 # start code-server
 CMD code-server --auth ${password} /workspace
