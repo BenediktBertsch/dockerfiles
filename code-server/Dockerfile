@@ -18,10 +18,9 @@ RUN apt-get update -y && \
 # install
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
-# run custom script
-RUN if[ -f /dependencies/dependencies.sh] \
-	then /dependencies/dependencies.sh \
-	else echo "Customfile does not exist" fi
+# copy and run custom script
+COPY custom.sh /custom.sh
+RUN /custom.sh
 
 # start code-server
 CMD code-server --auth ${password} /workspace
