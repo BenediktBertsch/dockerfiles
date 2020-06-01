@@ -19,7 +19,7 @@ RUN apt-get update -y && \
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # copy and run custom script
-COPY dockerfiles/code-server/custom.sh /custom.sh
+COPY custom.sh /
 RUN /custom.sh
 
 # start code-server
