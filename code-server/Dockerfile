@@ -19,7 +19,7 @@ RUN apt-get update -y && \
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # copy and run custom script
-COPY custom.sh /
+COPY /code-server/custom.sh /
 
 # start code-server
 CMD code-server --auth ${password} /workspace
