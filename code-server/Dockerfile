@@ -19,7 +19,12 @@ RUN apt-get update -y && \
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # run custom script
-RUN /dependencies/dependencies.sh
+RUN if[ -f /dependencies/dependencies.sh] \
+	then /dependencies/dependencies.sh \
+	else echo "Customfile does not exist" fi
 
 # start code-server
-RUN code-server --auth ${password} /workspace
+CMD code-server --auth ${password} /workspace
+
+# Port Exposing
+EXPOSE 8080
