@@ -2,7 +2,7 @@
 FROM node:latest AS build
 
 # ENV
-ENV password=password
+ENV password="password"
 
 # Mounting
 VOLUME [/dependencies]
@@ -24,7 +24,7 @@ RUN chmod +x /custom.sh \
 	/custom.sh
 
 # start code-server
-RUN code-server --auth $password /workspace
+RUN code-server --auth $password /workspace &
 
 # Port Exposing
 EXPOSE 8080
