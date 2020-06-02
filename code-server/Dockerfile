@@ -1,8 +1,8 @@
 # Node-Base
 FROM node:latest AS build
 
-# ARG
-ARG password=password
+# ENV
+ENV password=password
 
 # Mounting
 VOLUME [/dependencies]
