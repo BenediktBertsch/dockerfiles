@@ -13,4 +13,4 @@ RUN apt-get update -y && \
 	service jenkins start
 
 # Port Exposing
-EXPOSE 8090
+EXPOSE 8080
