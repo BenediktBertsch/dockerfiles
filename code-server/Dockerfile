@@ -21,7 +21,7 @@ RUN chmod +x /custom.sh \
 	/custom.sh
 
 # start code-server
-CMD [ "code-server", "--config /config", "/workspace" ]
+CMD [ "code-server", "--config /config", "--user-data-dir /workspace" ]
 
 # Port Exposing
 EXPOSE 8080
