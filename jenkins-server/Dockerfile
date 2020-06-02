@@ -9,9 +9,9 @@ RUN apt-get update -y && \
 
 RUN wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add -
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-RUN deb https://pkg.jenkins.io/debian binary/ \
-	apt-key fingerprint 0EBFCD88 \
-	add-apt-repository \
+RUN deb https://pkg.jenkins.io/debian binary/ 
+RUN apt-key fingerprint 0EBFCD88 
+RUN	add-apt-repository \
    	"deb [arch=amd64] https://download.docker.com/linux/debian \
    	$(lsb_release -cs) \
    	stable" 
