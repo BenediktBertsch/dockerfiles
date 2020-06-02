@@ -23,8 +23,5 @@ RUN chmod +x /custom.sh \
 # start code-server
 CMD [ "code-server", "--config /config", "/workspace" ]
 
-# make configfile editable
-RUN chmod 777 -r /config
-
 # Port Exposing
 EXPOSE 8080
