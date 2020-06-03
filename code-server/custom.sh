@@ -16,7 +16,7 @@ mkdir -p /data/{extensions,data,workspace,dependencies}
 # Check if dependencies script exists
 if [ -f /data/dependencies/dependencies.sh ]
     then 
-        chmod 777 /data/dependencies/dependencies.sh && /data/dependencies/dependencies.sh
+        chmod 777 /data/dependencies/dependencies.sh && ./data/dependencies/dependencies.sh
     else 
         echo "Customfile does not exist, generating..." && touch /data/dependencies/dependencies.sh && echo "#!/bin/bash" >> /data/dependencies/dependencies.sh && chmod 777 /data/dependencies/dependencies.sh
 fi
