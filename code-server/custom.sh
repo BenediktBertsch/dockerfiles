@@ -17,7 +17,7 @@ ipv4=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)
 mkdir -p /data/{extensions,data,workspace,dependencies}
 
 # Check if dependencies script exists
-if [ -f /data/dependencies/dependencies.sh]
+if [ -f /data/dependencies/dependencies.sh ]
     then 
         chmod 777 /data/dependencies/dependencies.sh && /data/dependencies/dependencies.sh
     else 
