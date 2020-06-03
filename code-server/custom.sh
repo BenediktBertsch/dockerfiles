@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ENV
-config='/config'
-workspace='/workspace'
+config='~/config'
+workspace='~/workspace'
 
 # IP
 ipv4=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)
