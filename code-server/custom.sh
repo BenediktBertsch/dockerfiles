@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # ENV
-config='~/config'
-workspace='~/workspace'
+config='/config'
+workspace='/workspace'
 port=$PORT
 
 # IP
