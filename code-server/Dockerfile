@@ -2,12 +2,10 @@
 FROM node:latest
 
 # Mounting
-VOLUME [/dependencies]
-VOLUME [/config]
-VOLUME [/workspace]
+VOLUME [/data]
 
 # Create Folders
-RUN mkdir /dependencies && mkdir /config && mkdir /workspace && chmod 777 -R /dependencies && chmod 777 -R /config && chmod 777 -R /workspace
+RUN mkdir /data && chmod 777 -R /data
 
 # Update
 RUN apt-get update -y && \
