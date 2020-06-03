@@ -21,6 +21,11 @@ if [ ! -d /data/workspace ]
         mkdir /data/workspace && chmod -R 777 /data/workspace
 fi
 
+if [ ! -d /data/extensions ]
+    then 
+        mkdir /data/extensions && chmod -R 777 /data/extensions
+fi
+
 # Check if dependencies script exists
 if [ -f /data/dependencies/dependencies.sh]
     then 
@@ -30,4 +35,9 @@ if [ -f /data/dependencies/dependencies.sh]
 fi
 
 # start Code-Server
-code-server --bind-addr $ipv4:$port --config /data/config --user-data-dir /data/workspace
+/usr/bin/code-server \
+			--bind-addr 0.0.0.0:$port \
+			--user-data-dir /data/data \
+			--extensions-dir /data/extensions \
+			--disable-telemetry \
+			/data/workspace
