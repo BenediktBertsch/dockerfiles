@@ -3,6 +3,7 @@
 # ENV
 config='~/config'
 workspace='~/workspace'
+port=$PORT
 
 # IP
 ipv4=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)
@@ -16,4 +17,4 @@ if [ -f /dependencies/dependencies.sh]
 fi
 
 # start Code-Server
-code-server --bind-addr $ipv4 --config $config --user-data-dir $workspace
+code-server --bind-addr $ipv4:$port --config $config --user-data-dir $workspace
