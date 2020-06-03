@@ -16,4 +16,4 @@ if [ -f /dependencies/dependencies.sh]
 fi
 
 # start Code-Server
-./code-server --bind-addr $ipv4 --config $config --user-data-dir $workspace
+code-server --bind-addr $ipv4 --config $config --user-data-dir $workspace
