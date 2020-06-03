@@ -15,13 +15,12 @@ RUN apt-get update -y && \
 # install
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
-# copy and run custom script
+# copy custom script
 COPY /code-server/custom.sh /
-RUN chmod +x /custom.sh \
-	/custom.sh
+RUN chmod +x /custom.sh 
 
-# start code-server
-CMD [ "code-server" ]
+# start script
+ENTRYPOINT [ "/custom.sh" ]
 
 # Port Exposing
 EXPOSE 8080
