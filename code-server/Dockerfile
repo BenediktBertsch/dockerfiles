@@ -17,7 +17,7 @@ RUN apt-get update -y && \
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 # Copy custom script
-COPY /code-server/custom.sh /
+COPY custom.sh /
 RUN chmod +x /custom.sh 
 
 # Start script
