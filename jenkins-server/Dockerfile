@@ -1,16 +1,16 @@
 # Jenkins-Base
-FROM debian:latest
+FROM jenkins:alpine
 
 # Update and install Jenkins + Docker
-RUN apt-get update -y && \
-	apt-get upgrade -y && \
-	apt-get install -y && \
-	apt-get install wget curl apt-transport-https ca-certificates gnupg-agent software-properties-common gnupg2 docker.io openjdk-11-jdk-headless -y && \
-	wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - && \
-	echo "deb https://pkg.jenkins.io/debian binary/"  >> /etc/apt/sources.list && \
-	apt-get update -y && \ 
-	apt-get install jenkins -y && \
-	service jenkins start
+USER root
+RUN apk upgrade --update
+RUN apk add openrc --no-cache
+RUN apk add docker
+RUN curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+    chmod +x /usr/local/bin/docker-compose && \
+    ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+VOLUME /config
 
 # Port Exposing
 EXPOSE 8080
