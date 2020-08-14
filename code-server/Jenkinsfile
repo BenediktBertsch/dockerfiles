@@ -1,7 +1,7 @@
 node {
     def app
     def dockerUsername = "xaviius"
-    def registryName = "jenkins-server"
+    def registryName = "code-server"
 
     stage('Clone repository') {
         checkout scm
