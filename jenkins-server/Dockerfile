@@ -12,7 +12,8 @@ RUN curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-c
 RUN usermod -a -G root jenkins
 USER jenkins
 
-VOLUME /config
+VOLUME /var/jenkins_home
+VOLUME /var/run/docker.sock
 
 # Port Exposing
 EXPOSE 8080
