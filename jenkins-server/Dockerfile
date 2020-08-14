@@ -1,5 +1,5 @@
 # Jenkins-Base
-FROM jenkins/jenkins::alpine
+FROM jenkins/jenkins:alpine as base
 
 # Update and install Jenkins + Docker
 USER root
