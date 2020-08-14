@@ -1,9 +1,6 @@
 node {
     def app
-
-    environment{
-        registryname = "xaviius/jenkins-server"
-    }
+    def registryname = "xaviius/jenkins-server"
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -32,8 +29,8 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-            app.push("${env.BUILD_NUMBER}-dev")
-            app.push("dev")
+            app.push(registryname + "${env.BUILD_NUMBER}-dev")
+            app.push(registryname + "dev")
         }
         
     }
