@@ -1,16 +1,20 @@
 node {
     def app
 
+    environment{
+        registryname = "xaviius/jenkins-server"
+    }
+
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
         checkout scm
     }
 
-    stage('Build image') {
+    stage('Building image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("jenkins-docker", "jenkins-server/")
+        app = docker.build(registryname + ":$BUILD_NUMBER", "jenkins-server/")
     }
 
     stage('Test image') {
@@ -28,8 +32,9 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("${env.BUILD_NUMBER}-dev")
+            app.push("dev")
         }
+        
     }
 }
