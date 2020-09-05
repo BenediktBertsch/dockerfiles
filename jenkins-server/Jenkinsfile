@@ -22,6 +22,5 @@ node {
             app.push("${env.BUILD_NUMBER}-stable")
             app.push("latest")
         }
-        
     }
 }
